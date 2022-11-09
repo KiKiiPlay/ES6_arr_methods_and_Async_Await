@@ -8,8 +8,9 @@ window.onload = async () => {
 
   result.forEach((books) => console.log(books));
   result.forEach((books) => {
+    let index = 1;
     getRow.innerHTML += `
-    <div class="col mb-3">
+    <div class="col mb-3 selectedDiv">
             <div class="card h-100 shadow-sm">
               <img
                 src="${books.img}"
@@ -18,7 +19,7 @@ window.onload = async () => {
                 alt="..."
               />
               <div class="card-body">
-                <div class="clearfix mb-4">
+                <div class="clearfix mb-5">
                   <span class="float-start badge"
                     >${books.category}</span
                   >
@@ -27,14 +28,22 @@ window.onload = async () => {
                 <h5 class="card-title">
                   ${books.title}
                 </h5>
+                <p>ID: ${books.asin}</p>
                 <div class="text-center my-4">
                   <a href="#" class="btn btn-warning">Add To Cart</a>
                 </div>
                 <div class="text-center my-4">
-                  <a href="#" class="btn btn-warning">Skip</a>
+                  <a href="#" class="btn btn-warning" onclick="skipData()" id="btn${index}">Skip</a>
                 </div>
               </div>
             </div>
           </div>`;
+    index += 1;
+    console.log(index);
   });
+};
+
+const skipData = function () {
+  const getElement = document.getElementsByClassName("selectedDiv");
+  console.log(getElement);
 };

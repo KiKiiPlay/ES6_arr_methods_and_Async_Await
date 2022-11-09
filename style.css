@@ -23,6 +23,10 @@ a {
   padding: 10px;
 }
 
+.selected_borders {
+  border: 2px red solid;
+}
+
 .delete_item {
   display: none;
 }
